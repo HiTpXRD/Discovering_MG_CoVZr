@@ -2,9 +2,8 @@
 Wrapper class for all ternary plotting functions.
 """
 
-from functools import partial
-
 import numpy
+from functools import partial
 from matplotlib import pyplot
 
 from . import heatmapping
@@ -260,7 +259,7 @@ class TernaryAxesSubplot(object):
         ax = self.get_axes()
         scale = self.get_scale()
         lines.ticks(ax, scale, ticks=ticks, locations=locations,
-                    multiple=multiple, clockwise=clockwise, axis=axis, 
+                    multiple=multiple, clockwise=clockwise, axis=axis,
                     axes_colors=axes_colors, **kwargs)
 
     # Redrawing and resizing

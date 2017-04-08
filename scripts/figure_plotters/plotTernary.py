@@ -3,9 +3,11 @@ __author__ = "Travis Williams"
 # Jason Hattrick-Simpers group
 # Starting Date: June, 2016
 
-import ternary
 import matplotlib.pyplot as plt
 import numpy as np
+
+from scripts.figure_plotters import ternary
+
 
 def plt_ternary_save(data, tertitle='',  labelNames=('Species A','Species B','Species C'), scale=100,
                        sv=False, svpth=r"C:/Users/Travis W/Pictures/", svflnm='Unnamed',
