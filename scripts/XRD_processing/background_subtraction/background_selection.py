@@ -12,8 +12,9 @@ import numpy as np
 # try changing the background_indices to choose the best point for spline fit
 background_indices = [5,42, 92, 142, 180, 514, 925] 
 
-path = 'C:\\Research_FangRen\\Data\\July2016\\CoVZr_ternary\\1Dfiles\\high_power_15\\'
-filename = 'Sample15_7thick_24x24_t30_0056_1D.csv'
+
+path = '..//..//..//data//1D_spectra//raw_1D//Sample8//'
+filename = 'Sample8_24x24_t30_0001_1D.csv'
 
 fullname = path + filename
 
@@ -38,4 +39,5 @@ background = splev(Qlist, tck)
 plt.plot(x, IntAve)
 plt.plot(background_indices, background_y, 'o')
 plt.plot(x, background)
+plt.show()
 

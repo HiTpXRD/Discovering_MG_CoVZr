@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Wed Aug 03 16:22:25 2016
 
@@ -69,16 +68,19 @@ def save_results(background_x, background_y, Qlist, IntAve, index, base_filename
     np.savetxt(save_path + base_filename + file_index(index) + 'bckgrd_subtracted.csv', data.T, delimiter=",")
 
 
+# change the background indices according to each sample. Refering to background_selection.py to choosing the right background.
 background_indices = [5,42, 92, 142, 180, 468, 548, 584, 841, 863, 882, 895, 903, 925]
-folder_path = 'C:\\Research_FangRen\\Data\\July2016\\CoVZr_ternary\\1Dfiles\\high_power_8_14_17\\Sample8\\'
+
+
+sample_num = 'Sample8'
 base_filename = 'Sample8_24x24_t30_'
 
-
-save_path = folder_path + 'background_subtracted\\'
+folder_path = '..//..//..//data//1D_spectra//raw_1D//' + sample_num + '//'
+save_path = '..//..//..//data//1D_spectra//background_subtracted//' + sample_num + '//'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-index = 437
+index = 1
 basefile_path = folder_path + base_filename
 while (index <= 440):
     print 'processing', basefile_path + file_index(index) + '_1D.csv'
