@@ -2,7 +2,7 @@
 """
 Created on Fri Jun 17 15:37:51 2016
 
-@author: fangren
+@author: Fang Ren, Travis Williams
 """
 
 import matplotlib.pyplot as plt
@@ -11,9 +11,7 @@ import glob
 import os
 from os.path import basename
 from scipy.optimize import curve_fit
-import imp
-peakdet = imp.load_source("peakdet", "peak_detection.py")
-    
+
 
 def func(x, *params):
     """
@@ -31,8 +29,10 @@ def func(x, *params):
 
 
 
-path = 'C:\\Research_FangRen\\Data\\July2016\\CoVZr_ternary\\1Dfiles\\low_power_9_10_18\\Sample18\\background_subtracted\\'
-save_path = path + 'peak_fit_Voigt\\'
+
+sample_num = 'Sample8'
+path = '..//..//..//data//1D_spectra//background_subtracted//' + sample_num + '//'
+save_path = '..//..//..//data//1D_spectra//peak_fitted//' + sample_num + '//'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
@@ -82,15 +82,13 @@ for filename in glob.glob(os.path.join(path, '*.csv')):
             plt.plot(Qlist, curve1)
             plt.plot(Qlist, curve2)
             plt.plot(Qlist, curve3)
-            plt.show()
-            plt.savefig(save_path + basename(filename)[:-4] + '_peak_analysis_Voigt')
-            plt.close()
+            plt.savefig(save_path + basename(filename)[:-4] + '_peak_analysis_GLS')
             
             popt = np.reshape(popt, (popt.size/4, 4))
-            np.savetxt(save_path + basename(filename)[:-4] + '_peak_analysis_Voigt.csv', popt, delimiter=",")
+            np.savetxt(save_path + basename(filename)[:-4] + '_peak_analysis_GLS.csv', popt, delimiter=",")
             
         except RuntimeError:
             print "Failed to fit", filename
             print "used the previous peak information"
-            np.savetxt(save_path + basename(filename)[:-4] + '_peak_analysis_Voigt.csv', popt, delimiter=",")
+            np.savetxt(save_path + basename(filename)[:-4] + '_peak_analysis_GLS.csv', popt, delimiter=",")
             
